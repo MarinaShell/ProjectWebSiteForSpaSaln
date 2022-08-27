@@ -1,0 +1,138 @@
+body{
+    margin: 0;
+    padding: 0;
+}
+
+header{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 200px;
+    background-color: gray;
+    background: url("https://images.unsplash.com/photo-1654190556461-3919acf03f0a?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80") bottom no-repeat;
+    background-size: cover;
+    position:relative;
+}
+
+h1{
+    color: aliceblue;
+    font-size: 2rem;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+footer, main{
+    padding-top: 20px;
+    padding-bottom: 60px;
+    text-align: center;
+}
+
+footer .links{
+    margin-bottom: 50px;
+}
+
+.links > a{
+    color: darkblue;
+    padding: 0 25px;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 1rem;
+    text-decoration: none;
+    text-transform: uppercase;
+}
+
+.copyright{
+    color: cadetblue;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 10px;
+    text-align: center;
+}
+.news{
+    background-color: rgb(251, 252, 239);
+    padding: 50px 0 32px;    
+    width: 50%;
+    margin: auto;
+}
+
+p{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 16px;
+    color: rgb(17, 17, 65);
+}
+
+
+.newads::before{
+    content: "NEW!";
+    color: brown;
+    font-style: italic;
+}
+
+.headerTd{
+    background-color: rgb(251, 252, 239);
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 5px;
+    text-transform: uppercase; 
+    text-align: center;
+    height: 40px;
+    width: 300px;
+}
+
+.imgService{
+    width: 300px;
+    height: 220px;
+}
+
+.imgAction{
+    width: 600px;
+    height: 500px;
+}
+
+.imgAbout{
+    width: 600px;
+    height: 400px;
+}
+
+.tablePrice{
+    background-color: rgb(251, 252, 239);
+    width : 50%;
+    text-align: center;
+    min-width: 500px;
+    box-shadow: inset;
+    border-collapse: collapse;
+    border: 1px solid grey;
+    margin: 0 auto;
+}
+
+.tableServise{
+    background-color: rgb(251, 252, 239);
+    text-align: center;
+    min-width: 500px;
+    box-shadow: inset;
+    border-collapse: collapse;
+    margin: 0 auto;
+}
+
+.mainTd{
+    border: 1px solid grey;
+}
+.mainTd_v{
+    background-color: rgb(221, 221, 216);
+    border: 1px solid grey;
+    text-align: left;
+}
+
+.mainTd_p{
+    background-color: rgb(229, 183, 255);
+    border: 1px solid grey;
+}
+
+caption{
+    font-size: 18px;
+    font-weight: 600;
+    letter-spacing: 5px;
+    text-transform: uppercase; 
+   
+}
+.main_links{
+    text-decoration: none;   
+}
