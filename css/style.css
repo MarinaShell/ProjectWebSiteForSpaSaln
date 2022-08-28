@@ -63,6 +63,9 @@ p{
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     font-size: 16px;
     color: rgb(251, 252, 239);
+    letter-spacing: 5px;
+    text-transform: uppercase; 
+    text-decoration: none;   
 }
 
 .newads::before{

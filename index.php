@@ -28,6 +28,43 @@
                         <?php }
                         if ($login !== null) { ?>                        
                         <p class = "pLog">Добро пожаловать,<?= $login ?></p>
+                        <p class = "pLog">До вашего дня рождения осталось:</p>
+                        <p><?php 
+                       // $d1=strtotime("July 04");
+                       // $d2=ceil(($d1-time())/60/60/24);
+                       // echo "There are " . $d2 ." days until 4th of July.";
+
+                        $date = new DateTime();
+                        $date->setTimestamp(strtotime($_POST['dateOfBirth']));
+
+                        echo $date->format('d.m.Y');
+                        //$date = '12.04.1983'; //дата рожденияg
+$a = explode('.',$date->format('d.m.Y')); //режем на массив
+$b = mktime(0,0,0,$a[1],$a[0],date('Y'));
+$c = strtotime(date('d.m.Y'));
+if ($b<$c){ //проверяем было ли д.р. в этом году
+    echo (($c-mktime(0,0,0,$a[1],$a[0],date('Y')-1))/86400);
+}
+else echo (($c-$b)/86400)*-1;
+
+                            //$adate = new DateTime();
+                            //$adate->setTimestamp(strtotime($_POST['dateOfBirth']));
+                            //$day1 = strtotime($_POST['dateOfBirth']);
+                            //$new_date =  date('Y-m-d', strtotime($_POST['dateOfBirth']));
+                            //echo $new_date;
+                            //echo $adate."<br>";
+                            //$date1=time(); //Первую дату в секунды
+                            //echo $date1."34<br>"; 
+                            //$date2=explode('.','15.08.2022');  
+                            //$date2=time(0,0,0,$t[1],$t[0],$t[2]);//Вторую дату в секунды 
+                            
+                            $date3=$date1-$date2; //Вычитаем 
+                            $date3=$date3/86400; //Разницу - в дни
+                            //echo $date1."<br>";
+                            //echo $date2."<br>";
+                            //echo $date3;
+                            ?>
+                        </p>
                         <br>
                         <a href = "./pages/logout.php"><p class = "pLog">Выйти</p></a>
                         <?php } ?>                    

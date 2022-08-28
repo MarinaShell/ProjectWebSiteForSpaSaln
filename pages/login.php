@@ -35,14 +35,18 @@ if (!empty($_POST)){
         <?php endif;?>
 
         <form action = "login.php" method = "post">
-            <label for="login"><p>Имя пользователя:</p> </label> 
+            <label for = "login"><p>Имя пользователя:</p> </label> 
             <input type = "text" name = "login" id = "login">
             <br>
-            <label for="password"><p>Пароль: </p></label> 
+            <label for = "password"><p>Пароль: </p></label> 
             <input type = "text" name = "password" id = "password">
+            <br>
+            <label for = "dateOfBirth"><p>Дата рождения: </p></label> 
+            <input type = "date" name = "dateOfBirth" id = "dateOfBirth" />
             <br>
             <br>
             <button class = "buttons" value = "Войти"> Войти </button>
         </form>
+        
     </body>
 </html>

@@ -24,12 +24,12 @@
                         require "./auth.php";
                         $login = getCurrentUser();
                         if ($login === null) { ?>
-                        <a href = "./login.php"><p>Вход</p></a>
+                        <a href = "./login.php"><p p class = "pLog">Вход</p></a>
                         <?php }
                         if ($login !== null) { ?>                        
                         <p class = "pLog">Добро пожаловать,<?= $login ?></p>
                         <br>
-                        <a href = "./logout.php"><p>Выйти</p></a>
+                        <a href = "./logout.php"><p p class = "pLog">Выйти</p></a>
                         <?php } ?>                    
                 </td>
             </tr>
