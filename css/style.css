@@ -56,9 +56,14 @@ footer .links{
 p{
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     font-size: 16px;
-    color: rgb(17, 17, 65);
+    color: rgb(17, 17, 65);    
 }
 
+.pLog{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 16px;
+    color: rgb(251, 252, 239);
+}
 
 .newads::before{
     content: "NEW!";
@@ -135,4 +140,25 @@ caption{
 }
 .main_links{
     text-decoration: none;   
+}
+
+input{
+    font-size: 18px;
+    font-weight: 600;
+    letter-spacing: 5px;
+    text-transform: uppercase; 
+    background-color: rgb(251, 252, 239);
+    text-align: center;
+    min-width: 500px;
+}
+
+.buttons{
+    background-color:rgb(17, 17, 65);    
+    border: none;
+    color: rgb(251, 252, 239);
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 18px; 
 }

@@ -1,80 +1,95 @@
-<?php
-include 'array.php';
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="utf-8">
+    <title>Спа-салон Таити</title>
+    <link rel="stylesheet" href = "./css/style.css">
+</head>
+<body>
 
-/*****************************************************************************/
-/*принимает как аргумент три строки — фамилию, имя и отчество. 
-Возвращает как результат их же, но склеенные через пробел. */
-function getFullnameFromParts($surname, $name, $patronomyc){
-    $surname = mb_convert_case($surname, MB_CASE_TITLE, "UTF-8");
-    $name = mb_convert_case($name, MB_CASE_TITLE, "UTF-8");
-    $patronomyc = mb_convert_case($patronomyc, MB_CASE_TITLE, "UTF-8");
+    <header>
+        <table cellspacing="10" cellpadding="0" width="100%" height="50%">
+            <tr >
+                <td>
+                    <a class = "main_links" href="index.php"><h1>Спа-салон "Таити"</h1></a>                    
+                </td>
+                <td class = "headerTd" >
+                    <a href="#">Записаться on-line</a>                    
+                </td>
+                <td class = "headerTd">
+                    <a href="#">Купить сертификат</a>                                 
+                </td>
+                <td>
+                        <?php
+                        require "./pages/auth.php";
+                        $login = getCurrentUser();
+                        if ($login === null) { ?>
+                        <a href = "./pages/login.php"><p class = "pLog">Вход</p></a>
+                        <?php }
+                        if ($login !== null) { ?>                        
+                        <p class = "pLog">Добро пожаловать,<?= $login ?></p>
+                        <br>
+                        <a href = "./pages/logout.php"><p class = "pLog">Выйти</p></a>
+                        <?php } ?>                    
+                </td>
+            </tr>
+        </table>
+    </header>
 
-    return "$surname $name $patronomyc \r\n"; 
-} 
+    <main>
+        <div class="links">
+            <a href="./pages/services.php">Наши услуги</a>
+            <a href="./pages/price.php">Цены</a>
+            <a href="./pages/action.php">Акции</a>
+            <a href="./pages/news.php">Новости</a>
+        </div>
 
-/*****************************************************************************/
-/*принимает как аргумент одну строку — склеенное ФИО. Возвращает как результат 
-массив из трёх элементов с ключами ‘name’, ‘surname’ и ‘patronomyc’.*/
-function getPartsFromFullname($fullName){
-    $listArray = explode(" ", $fullName);
-    $arrayFiO = array(
-         "name"=>$listArray[1],
-         "surname"=>$listArray[0],
-         "patronomyc"=>$listArray[2],    
-    );
-    return $arrayFiO;
-}
+        <div>
+            <table cellspacing="10" cellpadding="10" width = "100%">
+                <tr>
+                    <td>
+                        <img class = "imgAbout" src="./images/main1.jpg" alt="акция скидка 25%">
+                        <p>Спа-салон "Таити" приглашает вас на незабываемые процедуры по ценам, которые вас приятно удивят.</p> 
+                    </td>
+                    <td>
+                        <img class = "imgAbout" src="./images/main5.jpg" alt="акция девичник">
+                        <p>Мы применяем лучшую косметику, разработанную ведущими мировыми компаниями и доказавшую свою эффективность.</p> 
+                    </td>              
+                </tr>       
+                <tr>
+                    <td>
+                        <img class = "imgAbout" src="./images/main3.jpg" alt="акция скидка 25%">
+                        <p>Мы предлагаем многообразие SPA-программ на самый взыскательный вкус.</p> 
+                    </td>
+                    <td>
+                        <img class = "imgAbout" src="./images/actia1.jpg" alt="акция ">
+                        <p>Здесь вас ждут постоянные акции и скидки.</p> 
+  
+                    </td>              
+                </tr>       
+                <tr>
+                    <td>
+                        <img class = "imgAbout" src="./images/main2.jpg" alt="акция скидка 25%">
+                        <p>Мы используем современные аппаратные методики для коррекции фигуры и омоложения кожи.</p>
+                    </td>
+                    <td>
+                        <img class = "imgAbout" src="./images/main4.jpg" alt="акция ">
+                        <p>У нас профессиональные специалисты с сертифицированными дипломами.</p> 
+                    </td>              
+                </tr>       
+            </table>
+        </div>  
 
-/*****************************************************************************/
-/*принимает как аргумент строку, содержащую ФИО вида «Иванов Иван Иванович» 
-и возвращает строку вида «Иван И.», где сокращается фамилия и отбрасывается 
-отчество. */
-function getShortName($fullName){
-    $arrayFIO = getPartsFromFullname($fullName);
-    $shortSurname = substr($arrayFIO['surname'], 
-                    0, 
-                    2);  
+    </main>
 
-    $shortSurname = mb_convert_case($shortSurname, MB_CASE_TITLE, "UTF-8");
-    $name = mb_convert_case($arrayFIO['name'], MB_CASE_TITLE, "UTF-8");
-    return $name." ".$shortSurname.".";
-}
-
-function randomFloat($min = 0, $max = 1) {
-    return $min + mt_rand() / mt_getrandmax() * ($max - $min);
-}
-
-/*Функция определения пола по ФИО*/
-include 'defGender.php';
-
-/*Определение возрастно-полового состава*/
-include 'defCompositionGender.php';
-
-/*Идеальный подбор пары*/
-include 'defPerfectPartner.php';
-
-/*Проверка работоспособности функций*/
-echo nl2br("getFullnameFromParts():\n");
-echo getFullnameFromParts('ИванОВ', 'Иван', 'Иванович');
-echo nl2br("\n\ngetPartsFromFullname():\n");
-var_dump(getPartsFromFullname('Иванов Иван Иванович'));
-echo nl2br("\n\ngetShortName():\n");
-echo getShortName('иванОВ сергей Андреевич');
-echo nl2br("\n\ngetGenderFromName():\n");
-$prName = getGenderFromName('ИванОВ СергеЙ АндреевИЧ');
-if ($prName>0)
-    echo "мужчина";
-elseif ($prName<0)
-    echo "женщина";
-else     
-    echo "что-то непонятное";
-
-echo nl2br("\n\ngetGenderDescription():\n");
-if (getGenderDescription($example_persons_array)<0)
-    echo "массив не имеет нужных значений";
-
-echo nl2br("\n\ngetPerfectPartner():\n");
-if (getPerfectPartner('ИВАНОВ', 'иВАН', 'ИвановИЧ', $example_persons_array))
-    echo "массив не имеет нужных значений";
-
-?>
+    <footer>
+        <div class="links">
+            <a href="#">Вакансии</a>
+            <a href="./pages/contacts.php">Контакты</a>
+            <a href="./pages/about.php">О нас</a>
+        </div>
+    </footer>
+    <div class="copyright">Copyright© Спа-салон Таити 2022</div>
+    
+</body>
+</html>

@@ -6,32 +6,11 @@
     <link rel="stylesheet" href = "../css/style.css">
 </head>
 <body>
-    <header>
-        <table cellspacing="10" cellpadding="0" width="100%" height="50%">
-            <tr >
-                <td>
-                    <a class = "main_links" href="../index.html"><h1>Спа-салон "Таити"</h1></a>                    
-                </td>
-                <td class = "headerTd" >
-                    <a href="#">Записаться on-line</a>                    
-                </td>
-                <td class = "headerTd">
-                    <a href="#">Купить сертификат</a>                                 
-                </td>
-                <td>
-                    Вход                    
-                </td>
-            </tr>
-        </table>
-    </header>
+    <?php require "header.php"; ?>
 
     <main>
-        <div class="links">
-            <a href="./services.html">Наши услуги</a>
-            <a href="./price.html">Цены</a>
-            <a href="./action.html">Акции</a>
-            <a href="./news.html">Новости</a>
-        </div>
+        <?php require "menu.html"; ?>
+
         <br>
         <br>
         <section class="news">
@@ -67,15 +46,7 @@
            </section> 
     </main>
 
-    <footer>
-        <div class="links">
-            <a href="#">Вакансии</a>
-            <a href="../pages/contacts.html" target="_blank">Контакты</a>
-            <a href="../pages/about.html" target="_blank">О нас</a>
-        </div>
-    </footer>
-    <div class="copyright">Copyright© Спа-салон Таити 2022</div>
-  
+    <?php require "footer.html"; ?>
     
 </body>
 </html>
