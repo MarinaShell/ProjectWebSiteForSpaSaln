@@ -22,7 +22,7 @@
                 <td>
                         <?php
                             require "./pages/auth.php";
-                            $login = getCurrentUser();
+                            $login = getCurrentUser();//проверяем пользователя
                             if ($login === null) {
                         ?>
                                 <a href = "./pages/login.php"><p class = "pLog">Вход</p></a>
@@ -31,18 +31,18 @@
                         ?>                        
                                 <p class = "pLog">Добро пожаловать,<?= $login ?></p>
                                 <?php 
-                                    $date = getUserDate();
+                                    $date = getUserDate();//получаем дату рождения из формы
                                     $a = explode('-',$date); //режем на массив
                                     $b = mktime(0,0,0,$a[1],$a[2],$a[0]);
-                                    $c = strtotime(date('d.m.Y'));
+                                    $c = strtotime(date('d.m.Y'));//текущая дата
                                     
-                                    if ($b==$c){
+                                    if ($b==$c){//даты совпали
                                 ?>
                                      <p class = "pLog">Поздравляем с днем рождения!</p>
                                      <p class = "pLog"> Ваша персональная скидка 10%</p>
                                 <?php }  
 
-                                    else
+                                    else //даты не совпали
                                     {
                                     ?>
                                         <p class = "pLog">До вашего дня рождения осталось:
@@ -54,10 +54,16 @@
                                             echo (($c-$b)/86400)*-1;
                                         }
                                     ?>
-                                        день</p>
+                                        дней</p>
                                         <p class = "pLog"> Ваша персональная скидка 5%</p>
                                     <?php }
-                                    ?> 
+
+                                        $datetime1 = new DateTime(date("H:i:s"));//Получаем текущее время
+                                        $datetime2 = new DateTime('23:59:59');//Время, до которого действует акция
+                                        $interval2 = $datetime2->diff($datetime1); // И считаем разницу для времени
+                                    ?>  <p class = "pLog"> До конца акции осталось:
+                                    <?php    echo $interval2->format(' %h ч. %i мин. %s сек.');    
+                                    ?> </p>
                                      
                                 <a href = "./pages/logout.php"><p class = "pLog">Выйти</p></a>
                                 <?php } ?>                    

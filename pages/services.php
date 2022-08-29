@@ -77,7 +77,7 @@
         </div>  
     </main>
 
-    <?php require "footer.html"; ?>
+    <?php require "footer.php"; ?>
   
     
 </body>

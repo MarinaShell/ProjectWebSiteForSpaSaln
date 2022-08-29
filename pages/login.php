@@ -8,6 +8,11 @@ if (!empty($_POST)){
     $password = $_POST['password'] ?? '';
     $date = $_POST['dateOfBirth'] ?? '';
 
+    if (!$date)
+    {
+        $date = new DateTime(date("Y-m-d"));
+    }
+    
     if (checkPassword($login, $password)){
         setcookie('login', $login, 0, '/');
         setcookie('password', $password, 0, '/');
