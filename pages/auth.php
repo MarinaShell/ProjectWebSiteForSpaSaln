@@ -50,5 +50,18 @@ function getCurrentUser():?string{
     return null;
 }
 
+function getUserDate(){
+    $date = $_COOKIE['dateOfBirth'] ?? '';
+    $loginFromCookie = $_COOKIE['login'] ?? '';
+    $passwordFromCooie = $_COOKIE['password'] ?? '';
+
+    if (checkPassword($loginFromCookie, $passwordFromCooie)){
+        return $date;
+    }
+
+    return null;
+
+}
+
 ?>
 

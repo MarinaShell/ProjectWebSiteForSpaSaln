@@ -10,7 +10,7 @@
     <?php require "header.php"; ?>
     
     <main>
-        <?php require "menu.html"; ?>
+        <?php require "menu.php"; ?>
 
         <div>
             <table cellspacing="10" cellpadding="10" width = "100%">

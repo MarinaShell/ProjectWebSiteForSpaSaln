@@ -9,7 +9,7 @@
     <?php require "header.php"; ?>
 
     <main>
-         <?php require "menu.html"; ?>
+         <?php require "menu.php"; ?>
          
         <div>
             <h2>КАК НАС НАЙТИ</h2>

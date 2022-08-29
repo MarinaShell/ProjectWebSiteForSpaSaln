@@ -6,10 +6,12 @@ if (!empty($_POST)){
 
     $login = $_POST['login'] ?? '';
     $password = $_POST['password'] ?? '';
+    $date = $_POST['dateOfBirth'] ?? '';
 
     if (checkPassword($login, $password)){
         setcookie('login', $login, 0, '/');
         setcookie('password', $password, 0, '/');
+        setcookie('dateOfBirth', $date, 0, '/');
         header('Location: /ProjectSpaSalon/index.php');
     } else {
         $error = 'Ошибка авторизации';
